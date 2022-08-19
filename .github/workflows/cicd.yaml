@@ -12,6 +12,8 @@ jobs:
     needs: tests
     runs-on: ubuntu-latest
     steps:
+      - run: echo ${{ 5 > 2 && 'value' || 'something' }}
+      - run: echo ${{ 5 < 2 && 'this' || 'another' }}
       - run: echo "building..."
 
   staging:

@@ -28,4 +28,9 @@ jobs:
     environment:
       name: Production
     steps:
+      - uses: trstringer/manual-approval@v1
+        with:
+          secret: ${{ github.token }}
+          approvers: ptgladk
+          minimum-approvals: 1
       - run: echo "deploy to production..."

@@ -27,7 +27,7 @@ jobs:
             export IMAGE_TAG=develop
           fi
         shell: bash
-      - run: echo ${IMAGE_TAG}
+      - run: echo ${{env.IMAGE_TAG}}
         shell: bash
       - name: Set develop image tag variable
         run: |
@@ -35,7 +35,7 @@ jobs:
             export IMAGE_TAG=rtbtrbtrbrtb
           fi
         shell: bash
-      - run: echo ${IMAGE_TAG}
+      - run: echo ${{env.IMAGE_TAG}}
         shell: bash
       - run: echo "deploy to production..."
 

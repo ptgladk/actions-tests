@@ -21,6 +21,21 @@ jobs:
       name: Staging
     steps:
       - run: echo "deploy to staging..."
+      - name: Set develop image tag variable
+        run: |
+          if [ ${{ github.ref_name }} == 'main' ]; then
+            export IMAGE_TAG=develop
+          fi
+        shell: bash
+      - run: echo $IMAGE_TAG
+      - name: Set develop image tag variable
+        run: |
+          if [ ${{ github.ref_name }} != 'main' ]; then
+            export IMAGE_TAG=rtbtrbtrbrtb
+          fi
+        shell: bash
+      - run: echo $IMAGE_TAG
+      - run: echo "deploy to production..."
 
   production:
     needs: staging

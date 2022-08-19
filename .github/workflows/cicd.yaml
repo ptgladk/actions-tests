@@ -28,6 +28,7 @@ jobs:
           fi
         shell: bash
       - run: echo ${IMAGE_TAG}
+        shell: bash
       - name: Set develop image tag variable
         run: |
           if [ ${{ github.ref_name }} != 'main' ]; then
@@ -35,6 +36,7 @@ jobs:
           fi
         shell: bash
       - run: echo ${IMAGE_TAG}
+        shell: bash
       - run: echo "deploy to production..."
 
   production:

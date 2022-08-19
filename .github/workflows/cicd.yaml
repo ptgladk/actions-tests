@@ -1,0 +1,31 @@
+name: Test CI/CD pipeline
+on:
+  push:
+  workflow_dispatch:
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "testing..."
+
+  build:
+    needs: tests
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "building..."
+
+  staging:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: Staging
+    steps:
+      - run: echo "deploy to staging..."
+
+  production:
+    needs: staging
+    runs-on: ubuntu-latest
+    environment:
+      name: Production
+    steps:
+      - run: echo "deploy to production..."
